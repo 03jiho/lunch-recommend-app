@@ -51,16 +51,10 @@ public class RecommendationService {
             score += restaurant.getPrice() >= 10000 ? 3 : -1;
         }
 
-        // Q3: Location / slope
+        // Q3: Location
         if ("main_gate".equals(answers.location())) {
             score += LocationZone.MAIN_GATE.equals(restaurant.getLocationZone()) ? 3 : 0;
             score += restaurant.getWalkingTimeMinutes() <= 5 ? 1 : 0;
-        } else if ("no_slope".equals(answers.location())) {
-            score += switch (restaurant.getSlopeLevel()) {
-                case 1 -> 3;
-                case 2 -> -1;
-                default -> -3;
-            };
         } else if ("shuttle_stop".equals(answers.location())) {
             score += LocationZone.SHUTTLE_STOP.equals(restaurant.getLocationZone()) ? 3 : 0;
         }

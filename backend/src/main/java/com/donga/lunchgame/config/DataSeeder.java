@@ -24,8 +24,8 @@ import java.util.List;
  * all of them. Walking time is ordered by how close each address's lot number is to
  * the verified main-gate address (Nakdong-daero 550beon-gil 37); the McDonald's at
  * Nakdong-daero 548 is confirmed by Namuwiki to sit directly across from the campus
- * shuttle-bus stop, which anchors the SHUTTLE_STOP zone for the Nakdong-daero
- * (main-road) cluster.
+ * shuttle-bus stop (route 사하10), which anchors the SHUTTLE_STOP zone for the
+ * Nakdong-daero (main-road) cluster.
  */
 @Component
 public class DataSeeder implements CommandLineRunner {

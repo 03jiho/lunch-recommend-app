@@ -31,12 +31,10 @@ function scoreRestaurant(restaurant, answers) {
     score += restaurant.price >= 10000 ? 3 : -1;
   }
 
-  // Q3: Location / slope
+  // Q3: Location
   if (answers.location === 'main_gate') {
     score += restaurant.locationZone === LOCATION_ZONES.MAIN_GATE ? 3 : 0;
     score += restaurant.walkingTimeMinutes <= 5 ? 1 : 0;
-  } else if (answers.location === 'no_slope') {
-    score += restaurant.slopeLevel === 1 ? 3 : restaurant.slopeLevel === 2 ? -1 : -3;
   } else if (answers.location === 'shuttle_stop') {
     score += restaurant.locationZone === LOCATION_ZONES.SHUTTLE_STOP ? 3 : 0;
   }

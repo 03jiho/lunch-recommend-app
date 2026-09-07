@@ -40,7 +40,7 @@ export const questions = [
   {
     id: 'location',
     title: 'Q3. 어디서 드시고 싶으신가요?',
-    subtitle: '위치 & 경사도',
+    subtitle: '위치',
     icon: MapPin,
     options: [
       {
@@ -49,13 +49,8 @@ export const questions = [
         description: '정문에서 가까운 곳으로',
       },
       {
-        id: 'no_slope',
-        label: '오르막길 절대 불가',
-        description: '최소한의 걷기, 평지 위주로',
-      },
-      {
         id: 'shuttle_stop',
-        label: '순환버스 탑승장 근처',
+        label: '사하10 탑승장 근처',
         description: '탑승 전후로 빠르게 식사',
       },
     ],

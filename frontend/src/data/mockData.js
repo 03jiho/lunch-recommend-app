@@ -12,12 +12,12 @@
 // all of them. Walking time is ordered by how close each address's lot number is to
 // the verified main-gate address (Nakdong-daero 550beon-gil 37); the McDonald's at
 // Nakdong-daero 548 is confirmed by Namuwiki to sit directly across from the campus
-// shuttle-bus stop, which anchors the "순환버스 정류장" zone for the Nakdong-daero
-// (main-road) cluster.
+// shuttle-bus stop (route 사하10), which anchors the "사하10 탑승장" zone for the
+// Nakdong-daero (main-road) cluster.
 
 export const LOCATION_ZONES = {
   MAIN_GATE: '정문',
-  SHUTTLE_STOP: '순환버스 정류장 · 하단역 방면',
+  SHUTTLE_STOP: '사하10 탑승장 · 하단역 방면',
 };
 
 export const restaurants = [

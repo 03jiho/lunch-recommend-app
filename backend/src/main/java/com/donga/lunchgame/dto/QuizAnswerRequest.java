@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
  * Answers submitted from the balance-game quiz.
  * time:     "fast" | "relaxed"
  * budget:   "budget" | "gourmet"
- * location: "main_gate" | "no_slope" | "shuttle_stop"
+ * location: "main_gate" | "shuttle_stop"
  */
 public record QuizAnswerRequest(
         @NotBlank String time,
