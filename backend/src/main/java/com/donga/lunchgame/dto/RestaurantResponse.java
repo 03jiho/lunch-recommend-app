@@ -16,7 +16,9 @@ public record RestaurantResponse(
         Integer walkingTimeMinutes,
         String signatureMenu,
         String mapUrl,
-        List<String> badges
+        List<String> badges,
+        boolean creatorPick,
+        String creatorNote
 ) {
 
     public static RestaurantResponse from(Restaurant restaurant) {
@@ -32,7 +34,9 @@ public record RestaurantResponse(
                 restaurant.getWalkingTimeMinutes(),
                 restaurant.getSignatureMenu(),
                 restaurant.getMapUrl(),
-                restaurant.getBadges()
+                restaurant.getBadges(),
+                restaurant.isCreatorPick(),
+                restaurant.getCreatorNote()
         );
     }
 }

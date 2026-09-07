@@ -55,6 +55,12 @@ public class Restaurant {
     @Column(name = "badge")
     private List<String> badges;
 
+    @Column(name = "creator_pick", nullable = false)
+    private boolean creatorPick = false;
+
+    @Column(name = "creator_note")
+    private String creatorNote;
+
     protected Restaurant() {
         // required by JPA
     }
@@ -74,6 +80,12 @@ public class Restaurant {
         this.signatureMenu = signatureMenu;
         this.mapUrl = mapUrl;
         this.badges = badges;
+    }
+
+    public Restaurant withCreatorPick(String note) {
+        this.creatorPick = true;
+        this.creatorNote = note;
+        return this;
     }
 
     public Long getId() {
@@ -122,5 +134,13 @@ public class Restaurant {
 
     public List<String> getBadges() {
         return badges;
+    }
+
+    public boolean isCreatorPick() {
+        return creatorPick;
+    }
+
+    public String getCreatorNote() {
+        return creatorNote;
     }
 }

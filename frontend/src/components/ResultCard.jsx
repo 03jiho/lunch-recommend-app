@@ -1,4 +1,4 @@
-import { MapPin, Clock, Wallet, ExternalLink } from 'lucide-react';
+import { MapPin, Clock, Wallet, ExternalLink, Star, Sparkles } from 'lucide-react';
 import { slopeLabel } from '../utils/recommendationEngine';
 
 const BADGE_STYLES = {
@@ -16,6 +16,13 @@ export default function ResultCard({ rank, restaurant }) {
       <div className="absolute -top-3 -left-3 flex h-9 w-9 items-center justify-center rounded-full bg-slate-900 text-white text-sm font-bold shadow">
         {rank}
       </div>
+
+      {restaurant.creatorPick && (
+        <div className="absolute -top-3 -right-3 flex items-center gap-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-400 text-white text-xs font-semibold pl-2.5 pr-3 py-1.5 shadow">
+          <Star size={12} className="fill-white" />
+          제작자 추천
+        </div>
+      )}
 
       <div>
         <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
@@ -58,6 +65,13 @@ export default function ResultCard({ rank, restaurant }) {
         <p className="text-xs font-medium text-slate-400 mb-0.5">대표 메뉴</p>
         <p className="text-sm font-medium text-slate-800">{restaurant.signatureMenu}</p>
       </div>
+
+      {restaurant.creatorNote && (
+        <div className="flex items-start gap-2 rounded-xl bg-amber-50 border border-amber-200 px-3 py-2.5">
+          <Sparkles size={15} className="text-amber-500 shrink-0 mt-0.5" />
+          <p className="text-xs font-medium text-amber-800">{restaurant.creatorNote}</p>
+        </div>
+      )}
 
       <a
         href={restaurant.mapUrl}

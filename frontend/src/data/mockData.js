@@ -50,6 +50,7 @@ export const restaurants = [
     signatureMenu: '햄볶음밥 (라면 국물·기본 반찬 포함)',
     badges: ['빠른 서비스', '가성비', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=동아분식 부산 사하구 낙동대로516번길 47',
+    creatorPick: true,
   },
   {
     id: 3,
@@ -120,6 +121,7 @@ export const restaurants = [
     signatureMenu: '부리또 세트 (맵기·토핑 커스터마이즈 가능)',
     badges: ['빠른 서비스', '가성비', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=리코리코 동아대점 부산 사하구 낙동대로516번길 33',
+    creatorPick: true,
   },
   {
     id: 8,
@@ -134,6 +136,7 @@ export const restaurants = [
     signatureMenu: '봉골레 스파게티 (식전 빵·마시멜로 제공)',
     badges: ['가성비', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=봉대박 스파게티 부산 사하구 낙동대로536번길 13',
+    creatorPick: true,
   },
   {
     id: 9,
@@ -316,6 +319,7 @@ export const restaurants = [
     signatureMenu: '등심돈까스 (식전 스프 포함)',
     badges: ['가성비', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=다맛 부산 사하구 낙동대로516번길 39',
+    creatorPick: true,
   },
   {
     id: 23,
@@ -330,6 +334,7 @@ export const restaurants = [
     signatureMenu: '밀면 (숯불고기 맛보기 포함)',
     badges: ['빠른 서비스', '가성비', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=고수 부산 사하구 낙동대로516번길 24',
+    creatorPick: true,
   },
   {
     id: 24,
@@ -372,6 +377,8 @@ export const restaurants = [
     signatureMenu: '짬뽕 (200도 고온 불맛)',
     badges: ['가성비'],
     mapUrl: 'https://map.kakao.com/?q=짬뽕관 부산하단점 부산 사하구 낙동대로 528',
+    creatorPick: true,
+    creatorNote: '홀에서 먹으면 밥·청포도에이드 무한리필',
   },
   {
     id: 27,
@@ -512,5 +519,20 @@ export const restaurants = [
     signatureMenu: '차돌짬뽕 + 탕수육 세트',
     badges: ['특별한 한 끼', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=삼국지짬뽕천하 부산 사하구 낙동대로550번길 1',
+  },
+  {
+    id: 37,
+    name: '밉상짬뽕',
+    category: '중식 / 짬뽕·짜장면',
+    priceRange: '짜군세트(짜장+만두6p+캔음료) 13,000원~ (단품가 미확인, 배달 메뉴 기준)',
+    price: 13000,
+    avgPrepTime: 15,
+    slopeLevel: 1,
+    locationZone: LOCATION_ZONES.MAIN_GATE,
+    walkingTimeMinutes: 6,
+    signatureMenu: '유니짜장 / 짬뽕',
+    badges: ['가성비', '평지 접근'],
+    mapUrl: 'https://map.kakao.com/?q=밉상짬뽕 부산 사하구 낙동대로536번길 9',
+    creatorPick: true,
   },
 ];

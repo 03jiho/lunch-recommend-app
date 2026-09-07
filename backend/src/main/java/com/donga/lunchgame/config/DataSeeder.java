@@ -55,7 +55,8 @@ public class DataSeeder implements CommandLineRunner {
                         10, 1, LocationZone.MAIN_GATE, 2,
                         "햄볶음밥 (라면 국물·기본 반찬 포함)",
                         "https://map.kakao.com/?q=동아분식 부산 사하구 낙동대로516번길 47",
-                        List.of("빠른 서비스", "가성비", "평지 접근")),
+                        List.of("빠른 서비스", "가성비", "평지 접근"))
+                        .withCreatorPick(null),
 
                 new Restaurant("하단만족 족발&보쌈 하단오거리본점", "한식 / 족발·보쌈", "실속보쌈·실속족발 31,000원(2인, 매장 메뉴판 확인), 1인 환산 약 15,500원", 15500,
                         15, 1, LocationZone.MAIN_GATE, 3,
@@ -85,13 +86,15 @@ public class DataSeeder implements CommandLineRunner {
                         8, 1, LocationZone.MAIN_GATE, 5,
                         "부리또 세트 (맵기·토핑 커스터마이즈 가능)",
                         "https://map.kakao.com/?q=리코리코 동아대점 부산 사하구 낙동대로516번길 33",
-                        List.of("빠른 서비스", "가성비", "평지 접근")),
+                        List.of("빠른 서비스", "가성비", "평지 접근"))
+                        .withCreatorPick(null),
 
                 new Restaurant("봉대박 스파게티 동아대점", "양식 / 파스타", "7,900원~", 7900,
                         12, 1, LocationZone.MAIN_GATE, 6,
                         "봉골레 스파게티 (식전 빵·마시멜로 제공)",
                         "https://map.kakao.com/?q=봉대박 스파게티 부산 사하구 낙동대로536번길 13",
-                        List.of("가성비", "평지 접근")),
+                        List.of("가성비", "평지 접근"))
+                        .withCreatorPick(null),
 
                 new Restaurant("라마마", "중식 / 마라탕·마라샹궈", "100g당 2,200원 (중량 주문)", 8000,
                         15, 1, LocationZone.SHUTTLE_STOP, 9,
@@ -169,13 +172,15 @@ public class DataSeeder implements CommandLineRunner {
                         15, 1, LocationZone.MAIN_GATE, 4,
                         "등심돈까스 (식전 스프 포함)",
                         "https://map.kakao.com/?q=다맛 부산 사하구 낙동대로516번길 39",
-                        List.of("가성비", "평지 접근")),
+                        List.of("가성비", "평지 접근"))
+                        .withCreatorPick(null),
 
                 new Restaurant("고수 숯불고기주는 냉면&밀면 하단점", "한식 / 밀면·냉면", "7,500 ~ 8,000원 (숯불고기 포함)", 7500,
                         10, 1, LocationZone.MAIN_GATE, 5,
                         "밀면 (숯불고기 맛보기 포함)",
                         "https://map.kakao.com/?q=고수 부산 사하구 낙동대로516번길 24",
-                        List.of("빠른 서비스", "가성비", "평지 접근")),
+                        List.of("빠른 서비스", "가성비", "평지 접근"))
+                        .withCreatorPick(null),
 
                 new Restaurant("올바로갈비", "한식 / 돼지갈비", "생 100g 3,900원+양념 100g 3,500원+계란공기밥 1,500원 = 8,900원 (실제 방문 후기 주문 사례)", 8900,
                         20, 1, LocationZone.SHUTTLE_STOP, 10,
@@ -193,7 +198,8 @@ public class DataSeeder implements CommandLineRunner {
                         12, 1, LocationZone.SHUTTLE_STOP, 6,
                         "짬뽕 (200도 고온 불맛)",
                         "https://map.kakao.com/?q=짬뽕관 부산하단점 부산 사하구 낙동대로 528",
-                        List.of("가성비")),
+                        List.of("가성비"))
+                        .withCreatorPick("홀에서 먹으면 밥·청포도에이드 무한리필"),
 
                 new Restaurant("홍주방 하단본점", "중식 / 마라탕·마라샹궈", "마라탕 100g 1,800원, 1인당 약 15,000원 (실제 방문 후기 기준)", 15000,
                         15, 1, LocationZone.SHUTTLE_STOP, 5,
@@ -253,7 +259,14 @@ public class DataSeeder implements CommandLineRunner {
                         15, 1, LocationZone.MAIN_GATE, 2,
                         "차돌짬뽕 + 탕수육 세트",
                         "https://map.kakao.com/?q=삼국지짬뽕천하 부산 사하구 낙동대로550번길 1",
-                        List.of("특별한 한 끼", "평지 접근"))
+                        List.of("특별한 한 끼", "평지 접근")),
+
+                new Restaurant("밉상짬뽕", "중식 / 짬뽕·짜장면", "짜군세트(짜장+만두6p+캔음료) 13,000원~ (단품가 미확인, 배달 메뉴 기준)", 13000,
+                        15, 1, LocationZone.MAIN_GATE, 6,
+                        "유니짜장 / 짬뽕",
+                        "https://map.kakao.com/?q=밉상짬뽕 부산 사하구 낙동대로536번길 9",
+                        List.of("가성비", "평지 접근"))
+                        .withCreatorPick(null)
         ));
     }
 }
