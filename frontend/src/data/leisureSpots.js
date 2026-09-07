@@ -55,6 +55,10 @@ export const leisureSpots = [
 // Picks one spot per category, preferring a match on location zone and then the
 // closest walking time to the top-recommended restaurant (so e.g. the PC방 pick
 // follows whichever end of the SHUTTLE_STOP strip the restaurant actually sits on).
+//
+// Exception: for the "1시간 이상 + 6,000원 이하" combo (a quick, budget-friendly
+// meal like 동아분식/밉상짬뽕 followed by killing time before class), always
+// suggest 레벨업 PC specifically rather than the nearest-match PC방.
 export function pickLeisureSpots(answers, topRestaurant) {
   const categories = ['PC방', '카페', '아이스크림'];
   const targetZone =
@@ -62,6 +66,10 @@ export function pickLeisureSpots(answers, topRestaurant) {
   const targetWalk = topRestaurant?.walkingTimeMinutes ?? 0;
 
   return categories.map((category) => {
+    if (category === 'PC방' && answers.time === 'relaxed' && answers.budget === 'budget') {
+      return leisureSpots.find((spot) => spot.name === '레벨업 PC');
+    }
+
     const candidates = leisureSpots.filter((spot) => spot.category === category);
     const zoneMatches = candidates.filter((spot) => spot.locationZone === targetZone);
     const pool = zoneMatches.length > 0 ? zoneMatches : candidates;
