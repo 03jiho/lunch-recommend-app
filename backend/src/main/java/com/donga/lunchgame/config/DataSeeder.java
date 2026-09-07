@@ -145,15 +145,9 @@ public class DataSeeder implements CommandLineRunner {
                         "https://map.kakao.com/?q=돌담 부산 사하구 낙동남로 1368",
                         List.of("특별한 한 끼", "단체모임 추천")),
 
-                new Restaurant("롯데리아 부산동아대점", "패스트푸드 / 버거", "세트 6,000원~ (추정)", 6000,
-                        6, 1, LocationZone.MAIN_GATE, 2,
-                        "불고기버거 세트",
-                        "https://map.kakao.com/?q=롯데리아 부산동아대점 부산 사하구 낙동대로550번길 1",
-                        List.of("빠른 서비스", "가성비", "평지 접근")),
-
-                new Restaurant("맥도날드 동아대점", "패스트푸드 / 버거", "세트 6,500원~ (추정)", 6500,
-                        6, 1, LocationZone.SHUTTLE_STOP, 3,
-                        "빅맥 세트",
+                new Restaurant("롯데리아·맥도날드 동아대점", "패스트푸드 / 버거", "세트 6,000 ~ 6,500원 (추정)", 6000,
+                        6, 1, LocationZone.SHUTTLE_STOP, 2,
+                        "불고기버거 세트 / 빅맥 세트",
                         "https://map.kakao.com/?q=맥도날드 동아대점 부산 사하구 낙동대로 548",
                         List.of("빠른 서비스", "가성비", "평지 접근")),
 
