@@ -6,8 +6,11 @@ import com.donga.lunchgame.model.LocationZone;
 import com.donga.lunchgame.model.Restaurant;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Scores each restaurant against the user's quiz answers and returns the top matches.
@@ -25,13 +28,26 @@ public class RecommendationService {
     }
 
     public List<RestaurantResponse> recommend(QuizAnswerRequest answers) {
-        List<Restaurant> restaurants = restaurantService.findAllEntities();
-
-        return restaurants.stream()
+        List<Restaurant> restaurants = restaurantService.findAllEntities().stream()
                 .sorted(Comparator.comparingInt((Restaurant r) -> score(r, answers)).reversed())
-                .limit(DEFAULT_RESULT_COUNT)
-                .map(RestaurantResponse::from)
                 .toList();
+
+        // Avoid showing two restaurants of the same category (e.g. two 돈카츠 places) —
+        // once a category is taken, skip further matches so the higher-scoring one wins.
+        Set<String> seenCategories = new HashSet<>();
+        List<RestaurantResponse> picks = new ArrayList<>();
+
+        for (Restaurant restaurant : restaurants) {
+            if (!seenCategories.add(restaurant.getCategory())) {
+                continue;
+            }
+            picks.add(RestaurantResponse.from(restaurant));
+            if (picks.size() == DEFAULT_RESULT_COUNT) {
+                break;
+            }
+        }
+
+        return picks;
     }
 
     private int score(Restaurant restaurant, QuizAnswerRequest answers) {
@@ -48,7 +64,9 @@ public class RecommendationService {
         if ("budget".equals(answers.budget())) {
             score += restaurant.getPrice() <= 6000 ? 3 : -3;
         } else if ("gourmet".equals(answers.budget())) {
-            score += restaurant.getPrice() >= 10000 ? 3 : -1;
+            // A firm cutoff: cheap/value spots shouldn't surface just because of
+            // other bonuses (e.g. creator's pick) when the user asked for gourmet.
+            score += restaurant.getPrice() >= 10000 ? 3 : -6;
         }
 
         // Q3: Location
@@ -59,9 +77,19 @@ public class RecommendationService {
             score += LocationZone.SHUTTLE_STOP.equals(restaurant.getLocationZone()) ? 3 : 0;
         }
 
-        // Creator's pick: nudge toward the top when it's still a reasonable match.
+        // Creator's pick: nudge toward the top when it's still a reasonable match —
+        // but a fast/quick-bite pick (avgPrepTime < 15) doesn't fit a relaxed,
+        // sit-down lunch, so it loses the bonus there instead of gaining it.
         if (restaurant.isCreatorPick()) {
-            score += 4;
+            boolean quickPickDuringRelaxed = "relaxed".equals(answers.time()) && restaurant.getAvgPrepTime() < 15;
+            score += quickPickDuringRelaxed ? -2 : 4;
+        }
+
+        // Quick-grab spots (rice burgers, cup rice — packaged to-go by nature, no
+        // real "spend an hour here" experience) don't fit a relaxed lunch at all,
+        // regardless of how cheap or fast they are.
+        if (restaurant.isQuickGrab() && "relaxed".equals(answers.time())) {
+            score -= 5;
         }
 
         return score;

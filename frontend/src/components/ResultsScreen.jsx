@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { RotateCcw, Loader2 } from 'lucide-react';
+import { RotateCcw, Loader2, ExternalLink, Clock3 } from 'lucide-react';
 import { fetchRecommendations } from '../api/recommendationApi';
+import { pickLeisureSpots } from '../data/leisureSpots';
 import ResultCard from './ResultCard';
 
 export default function ResultsScreen({ answers, onRestart }) {
@@ -52,6 +53,36 @@ export default function ResultsScreen({ answers, onRestart }) {
         </div>
       ) : (
         <p className="text-center text-slate-500">조건에 맞는 식당을 찾지 못했습니다.</p>
+      )}
+
+      {answers.time === 'relaxed' && results && results.length > 0 && (
+        <div className="mt-10 rounded-2xl border border-slate-200 bg-white p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Clock3 size={18} className="text-slate-400" />
+            <h3 className="text-base font-semibold text-slate-900">
+              시간 여유 있으시네요 — 식사 후 들르기 좋은 곳
+            </h3>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {pickLeisureSpots(answers, results[0]).map((spot) => (
+              <a
+                key={spot.id}
+                href={spot.mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-2 rounded-xl border border-slate-200
+                           px-4 py-3 hover:border-slate-900 transition-colors"
+              >
+                <div>
+                  <p className="text-xs font-medium text-slate-400">{spot.category}</p>
+                  <p className="text-sm font-semibold text-slate-900">{spot.name}</p>
+                  <p className="text-xs text-slate-500 mt-0.5">{spot.description}</p>
+                </div>
+                <ExternalLink size={15} className="text-slate-400 shrink-0" />
+              </a>
+            ))}
+          </div>
+        </div>
       )}
 
       <div className="flex justify-center mt-10">

@@ -18,7 +18,8 @@ public record RestaurantResponse(
         String mapUrl,
         List<String> badges,
         boolean creatorPick,
-        String creatorNote
+        String creatorNote,
+        boolean quickGrab
 ) {
 
     public static RestaurantResponse from(Restaurant restaurant) {
@@ -36,7 +37,8 @@ public record RestaurantResponse(
                 restaurant.getMapUrl(),
                 restaurant.getBadges(),
                 restaurant.isCreatorPick(),
-                restaurant.getCreatorNote()
+                restaurant.getCreatorNote(),
+                restaurant.isQuickGrab()
         );
     }
 }

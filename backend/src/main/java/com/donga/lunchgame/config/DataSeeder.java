@@ -58,7 +58,7 @@ public class DataSeeder implements CommandLineRunner {
                         .withCreatorPick(null),
 
                 new Restaurant("하단만족 족발&보쌈 하단오거리본점", "한식 / 족발·보쌈", "실속보쌈·실속족발 31,000원(2인, 매장 메뉴판 확인), 1인 환산 약 15,500원", 15500,
-                        15, 1, LocationZone.MAIN_GATE, 3,
+                        25, 1, LocationZone.MAIN_GATE, 3,
                         "쭈꾸미보쌈",
                         "https://map.kakao.com/?q=하단만족 부산 사하구 승학로10번길 3",
                         List.of("특별한 한 끼", "단체모임 추천", "평지 접근")),
@@ -228,13 +228,15 @@ public class DataSeeder implements CommandLineRunner {
                         5, 1, LocationZone.MAIN_GATE, 6,
                         "제육컵밥",
                         "https://map.kakao.com/?q=경대컵밥 동아대점 부산 사하구 낙동대로536번길 17",
-                        List.of("빠른 서비스", "가성비", "평지 접근")),
+                        List.of("빠른 서비스", "가성비", "평지 접근"))
+                        .withQuickGrab(),
 
                 new Restaurant("봉구스밥버거 부산동아대점", "분식 / 밥버거", "2,300 ~ 5,000원", 3300,
                         6, 1, LocationZone.MAIN_GATE, 2,
                         "햄치즈 밥버거",
                         "https://map.kakao.com/?q=봉구스밥버거 부산동아대점 부산 사하구 낙동대로516번길 55",
-                        List.of("빠른 서비스", "가성비", "평지 접근")),
+                        List.of("빠른 서비스", "가성비", "평지 접근"))
+                        .withQuickGrab(),
 
                 new Restaurant("은화수식당 동아대점", "한식 / 경양식 돈까스", "10,000 ~ 12,500원", 10000,
                         15, 1, LocationZone.MAIN_GATE, 6,

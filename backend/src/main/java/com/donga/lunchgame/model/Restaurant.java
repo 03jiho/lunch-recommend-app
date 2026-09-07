@@ -61,6 +61,9 @@ public class Restaurant {
     @Column(name = "creator_note")
     private String creatorNote;
 
+    @Column(name = "quick_grab", nullable = false)
+    private boolean quickGrab = false;
+
     protected Restaurant() {
         // required by JPA
     }
@@ -85,6 +88,11 @@ public class Restaurant {
     public Restaurant withCreatorPick(String note) {
         this.creatorPick = true;
         this.creatorNote = note;
+        return this;
+    }
+
+    public Restaurant withQuickGrab() {
+        this.quickGrab = true;
         return this;
     }
 
@@ -142,5 +150,9 @@ public class Restaurant {
 
     public String getCreatorNote() {
         return creatorNote;
+    }
+
+    public boolean isQuickGrab() {
+        return quickGrab;
     }
 }
