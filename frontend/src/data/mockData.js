@@ -1,11 +1,9 @@
 // Real restaurant data for the area around Dong-A University Seunghak Campus (Hadan),
 // Busan Saha-gu. Name, address, category, and operating hours are sourced from
 // DiningCode listings/reviews, Siksin magazine roundups, Hotple, and Kakao Map place
-// data (see README for links). Menu prices are sourced per-item; franchise items use
-// the chain's official/national menu price. 하이뽕's price is confirmed from its 장림
-// (original) branch menu board, since the 동아대점 listing only exposes delivery-app
-// combo sets. 짜가후라이드치킨's price is a group/combo set, not single-serving —
-// read priceRange closely.
+// data (see README for links). Menu prices are sourced per-item, confirmed directly
+// from each restaurant's own in-app menu board where possible; franchise items use
+// the chain's official/national menu price.
 //
 // Prep time, slope level, and walking time are not published anywhere and are
 // estimated: all spots are street-level shops in the flat Hadan commercial belt
@@ -351,20 +349,6 @@ export const restaurants = [
     mapUrl: 'https://map.kakao.com/?q=올바로갈비 부산 사하구 낙동대로519번길 25',
   },
   {
-    id: 25,
-    name: '짜가후라이드치킨',
-    category: '치킨 / 후라이드',
-    priceRange: '치킨+똥집+떡+감자튀김 세트 24,000 ~ 26,000원',
-    price: 24000,
-    avgPrepTime: 20,
-    slopeLevel: 1,
-    locationZone: LOCATION_ZONES.MAIN_GATE,
-    walkingTimeMinutes: 7,
-    signatureMenu: '똥집후라이드 세트',
-    badges: ['특별한 한 끼', '단체모임 추천'],
-    mapUrl: 'https://map.kakao.com/?q=짜가후라이드치킨 부산 사하구 낙동대로536번길 5',
-  },
-  {
     id: 26,
     name: '짬뽕관 부산하단점',
     category: '중식 / 짬뽕',
@@ -496,7 +480,7 @@ export const restaurants = [
     id: 35,
     name: '하이뽕 동아대점',
     category: '중식 / 퓨전짬뽕',
-    priceRange: '레드뽕 9,000원 / 크림뽕 11,000원 (본점 매장 메뉴판 확인)',
+    priceRange: '레드뽕 9,000원 / 크림뽕 11,000원 / 로제뽕 11,500원 (매장 메뉴판 확인)',
     price: 11000,
     avgPrepTime: 15,
     slopeLevel: 1,
@@ -524,14 +508,14 @@ export const restaurants = [
     id: 37,
     name: '밉상짬뽕',
     category: '중식 / 짬뽕·짜장면',
-    priceRange: '짜군세트(짜장+만두6p+캔음료) 13,000원~ (단품가 미확인, 배달 메뉴 기준)',
-    price: 13000,
-    avgPrepTime: 15,
+    priceRange: '밉상짬뽕 6,000원 / 밉상유니짜장 5,000원 (매장 메뉴판 확인)',
+    price: 6000,
+    avgPrepTime: 10,
     slopeLevel: 1,
     locationZone: LOCATION_ZONES.MAIN_GATE,
     walkingTimeMinutes: 6,
-    signatureMenu: '유니짜장 / 짬뽕',
-    badges: ['가성비', '평지 접근'],
+    signatureMenu: '밉상짬뽕',
+    badges: ['빠른 서비스', '가성비', '평지 접근'],
     mapUrl: 'https://map.kakao.com/?q=밉상짬뽕 부산 사하구 낙동대로536번길 9',
     creatorPick: true,
   },

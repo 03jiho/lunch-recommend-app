@@ -14,10 +14,9 @@ import java.util.List;
  *
  * Name, address, category, and operating hours are sourced from DiningCode
  * listings/reviews, Siksin magazine roundups, Hotple, and Kakao Map place data. Menu
- * prices are sourced per-item; franchise items use the chain's official/national menu
- * price. 하이뽕's price is confirmed from its 장림 (original) branch menu board, since
- * the 동아대점 listing only exposes delivery-app combo sets. 짜가후라이드치킨's price is
- * a group/combo set, not single-serving — read priceRange closely.
+ * prices are sourced per-item, confirmed directly from each restaurant's own in-app
+ * menu board where possible; franchise items use the chain's official/national menu
+ * price.
  *
  * Prep time, slope level, and walking time are not published anywhere and are
  * estimated: all spots are street-level shops in the flat Hadan commercial belt
@@ -188,12 +187,6 @@ public class DataSeeder implements CommandLineRunner {
                         "https://map.kakao.com/?q=올바로갈비 부산 사하구 낙동대로519번길 25",
                         List.of("특별한 한 끼", "평지 접근")),
 
-                new Restaurant("짜가후라이드치킨", "치킨 / 후라이드", "치킨+똥집+떡+감자튀김 세트 24,000 ~ 26,000원", 24000,
-                        20, 1, LocationZone.MAIN_GATE, 7,
-                        "똥집후라이드 세트",
-                        "https://map.kakao.com/?q=짜가후라이드치킨 부산 사하구 낙동대로536번길 5",
-                        List.of("특별한 한 끼", "단체모임 추천")),
-
                 new Restaurant("짬뽕관 부산하단점", "중식 / 짬뽕", "10,000 ~ 12,000원", 10000,
                         12, 1, LocationZone.SHUTTLE_STOP, 6,
                         "짬뽕 (200도 고온 불맛)",
@@ -249,7 +242,7 @@ public class DataSeeder implements CommandLineRunner {
                         "https://map.kakao.com/?q=은화수식당 동아대점 부산 사하구 낙동대로536번길 21",
                         List.of("특별한 한 끼", "평지 접근")),
 
-                new Restaurant("하이뽕 동아대점", "중식 / 퓨전짬뽕", "레드뽕 9,000원 / 크림뽕 11,000원 (본점 매장 메뉴판 확인)", 11000,
+                new Restaurant("하이뽕 동아대점", "중식 / 퓨전짬뽕", "레드뽕 9,000원 / 크림뽕 11,000원 / 로제뽕 11,500원 (매장 메뉴판 확인)", 11000,
                         15, 1, LocationZone.MAIN_GATE, 6,
                         "크림뽕",
                         "https://map.kakao.com/?q=하이뽕 동아대점 부산 사하구 낙동대로516번길 16",
@@ -261,11 +254,11 @@ public class DataSeeder implements CommandLineRunner {
                         "https://map.kakao.com/?q=삼국지짬뽕천하 부산 사하구 낙동대로550번길 1",
                         List.of("특별한 한 끼", "평지 접근")),
 
-                new Restaurant("밉상짬뽕", "중식 / 짬뽕·짜장면", "짜군세트(짜장+만두6p+캔음료) 13,000원~ (단품가 미확인, 배달 메뉴 기준)", 13000,
-                        15, 1, LocationZone.MAIN_GATE, 6,
-                        "유니짜장 / 짬뽕",
+                new Restaurant("밉상짬뽕", "중식 / 짬뽕·짜장면", "밉상짬뽕 6,000원 / 밉상유니짜장 5,000원 (매장 메뉴판 확인)", 6000,
+                        10, 1, LocationZone.MAIN_GATE, 6,
+                        "밉상짬뽕",
                         "https://map.kakao.com/?q=밉상짬뽕 부산 사하구 낙동대로536번길 9",
-                        List.of("가성비", "평지 접근"))
+                        List.of("빠른 서비스", "가성비", "평지 접근"))
                         .withCreatorPick(null)
         ));
     }
