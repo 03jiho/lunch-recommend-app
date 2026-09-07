@@ -35,7 +35,7 @@ export default function App() {
       </main>
 
       <footer className="py-6 text-center text-xs text-slate-400">
-        프로토타입용 샘플 데이터입니다. 실제 이용 전 매장 정보를 다시 확인해주세요.
+        매장명·메뉴·가격은 실제 정보를 기반으로 하나, 도보시간·경사도는 추정치입니다. 방문 전 정보를 다시 확인해주세요.
       </footer>
     </div>
   );
