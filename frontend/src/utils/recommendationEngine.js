@@ -10,14 +10,17 @@ export function getRecommendations(restaurants, answers, topN = 3) {
     }))
     .sort((a, b) => b.score - a.score);
 
-  // Avoid showing two restaurants of the same category (e.g. two 돈카츠 places) —
-  // once a category is taken, skip further matches so the higher-scoring one wins.
-  const seenCategories = new Set();
+  // Avoid showing two restaurants of the same dish (e.g. two 돈카츠 places, or two
+  // 짬뽕 places even though their category text differs — "중식 / 짬뽕" vs "일식 /
+  // 돈카츠" vs "한식 / 경양식 돈까스" can still be the same food). Once a foodType is
+  // taken, skip further matches so the higher-scoring one wins and a different dish
+  // takes its place.
+  const seenFoodTypes = new Set();
   const picks = [];
 
   for (const { restaurant } of scored) {
-    if (seenCategories.has(restaurant.category)) continue;
-    seenCategories.add(restaurant.category);
+    if (seenFoodTypes.has(restaurant.foodType)) continue;
+    seenFoodTypes.add(restaurant.foodType);
     picks.push(restaurant);
     if (picks.length === topN) break;
   }

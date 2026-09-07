@@ -32,13 +32,15 @@ public class RecommendationService {
                 .sorted(Comparator.comparingInt((Restaurant r) -> score(r, answers)).reversed())
                 .toList();
 
-        // Avoid showing two restaurants of the same category (e.g. two 돈카츠 places) —
-        // once a category is taken, skip further matches so the higher-scoring one wins.
-        Set<String> seenCategories = new HashSet<>();
+        // Avoid showing two restaurants of the same dish (e.g. two 돈카츠 places, or
+        // two 짬뽕 places even though their category text differs). Once a foodType
+        // is taken, skip further matches so the higher-scoring one wins and a
+        // different dish takes its place.
+        Set<String> seenFoodTypes = new HashSet<>();
         List<RestaurantResponse> picks = new ArrayList<>();
 
         for (Restaurant restaurant : restaurants) {
-            if (!seenCategories.add(restaurant.getCategory())) {
+            if (!seenFoodTypes.add(restaurant.getFoodType())) {
                 continue;
             }
             picks.add(RestaurantResponse.from(restaurant));

@@ -26,6 +26,12 @@ public class Restaurant {
     @Column(nullable = false)
     private String category;
 
+    // Groups restaurants by actual dish rather than the display category string,
+    // which can differ for the same food (e.g. "중식 / 짬뽕" vs "일식 / 돈카츠" vs
+    // "한식 / 경양식 돈까스"). Used to keep the Top 3 from showing duplicate dishes.
+    @Column(name = "food_type", nullable = false)
+    private String foodType;
+
     @Column(name = "price_range", nullable = false)
     private String priceRange;
 
@@ -68,12 +74,13 @@ public class Restaurant {
         // required by JPA
     }
 
-    public Restaurant(String name, String category, String priceRange, Integer price,
+    public Restaurant(String name, String category, String foodType, String priceRange, Integer price,
                        Integer avgPrepTime, Integer slopeLevel, String locationZone,
                        Integer walkingTimeMinutes, String signatureMenu, String mapUrl,
                        List<String> badges) {
         this.name = name;
         this.category = category;
+        this.foodType = foodType;
         this.priceRange = priceRange;
         this.price = price;
         this.avgPrepTime = avgPrepTime;
@@ -106,6 +113,10 @@ public class Restaurant {
 
     public String getCategory() {
         return category;
+    }
+
+    public String getFoodType() {
+        return foodType;
     }
 
     public String getPriceRange() {
