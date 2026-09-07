@@ -259,6 +259,13 @@ public class DataSeeder implements CommandLineRunner {
                         "밉상짬뽕",
                         "https://map.kakao.com/?q=밉상짬뽕 부산 사하구 낙동대로536번길 9",
                         List.of("빠른 서비스", "가성비", "평지 접근"))
+                        .withCreatorPick(null),
+
+                new Restaurant("키타이", "일식 / 돈카츠", "키타이카츠 10,000원 / 안심카츠 11,500원 (매장 메뉴판 확인)", 10000,
+                        15, 1, LocationZone.MAIN_GATE, 4,
+                        "안심카츠 (336시간 숙성)",
+                        "https://map.kakao.com/?q=키타이 부산 사하구 낙동대로 552",
+                        List.of("특별한 한 끼", "평지 접근"))
                         .withCreatorPick(null)
         ));
     }

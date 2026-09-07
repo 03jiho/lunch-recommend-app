@@ -59,6 +59,11 @@ public class RecommendationService {
             score += LocationZone.SHUTTLE_STOP.equals(restaurant.getLocationZone()) ? 3 : 0;
         }
 
+        // Creator's pick: nudge toward the top when it's still a reasonable match.
+        if (restaurant.isCreatorPick()) {
+            score += 4;
+        }
+
         return score;
     }
 }

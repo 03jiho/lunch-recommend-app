@@ -39,6 +39,11 @@ function scoreRestaurant(restaurant, answers) {
     score += restaurant.locationZone === LOCATION_ZONES.SHUTTLE_STOP ? 3 : 0;
   }
 
+  // Creator's pick: nudge toward the top when it's still a reasonable match.
+  if (restaurant.creatorPick) {
+    score += 4;
+  }
+
   return score;
 }
 
