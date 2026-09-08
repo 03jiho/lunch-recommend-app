@@ -107,7 +107,17 @@ public class RecommendationService {
 
         // Q2: Budget
         if ("budget".equals(answers.budget())) {
-            score += restaurant.getPrice() <= 6000 ? 3 : -3;
+            if (restaurant.getPrice() <= 6000) {
+                score += 3;
+            } else if (restaurant.getPrice() >= 20000) {
+                // A flat -3 wasn't enough to keep a 30,000원 steak set out of the
+                // "가성비" slot when it had a long prep time and location bonus
+                // going for it - this far outside 가성비 territory needs a much
+                // harsher penalty.
+                score -= 15;
+            } else {
+                score -= 3;
+            }
         } else if ("gourmet".equals(answers.budget())) {
             // A firm cutoff: cheap/value spots shouldn't surface just because of
             // other bonuses (e.g. creator's pick) when the user asked for gourmet.
