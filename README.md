@@ -1,6 +1,6 @@
 # 점심 뭐먹지? — 동아대학교 승학캠퍼스 점심 밸런스 게임
 
-**[바로가기 (GitHub Pages)](https://03jiho.github.io/lunch-recommend-app/)**
+**[바로가기 (Vercel)](https://donga-lunch.vercel.app)** · [바로가기 (GitHub Pages)](https://03jiho.github.io/lunch-recommend-app/)
 
 동아대학교 승학캠퍼스(하단) 주변에서 시간·예산·위치 조건에 맞춰 점심 맛집 Top 3를 추천해주는 밸런스 게임 스타일의 웹 앱입니다.
 
