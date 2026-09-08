@@ -27,8 +27,8 @@ export const questions = [
     options: [
       {
         id: 'budget',
-        label: '6,000원 이하',
-        description: '가성비 좋은 실속형 한 끼',
+        label: '가성비 메뉴',
+        description: '실속 있게, 부담 없는 한 끼',
       },
       {
         id: 'gourmet',
