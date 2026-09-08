@@ -1,9 +1,7 @@
 import { LOCATION_ZONES } from './mockData';
 
 // Real nearby spots for killing time after a relaxed (1+ hour) lunch. Sourced from
-// Kakao Map place data — same verification standard as mockData.js. Multiple PC방
-// candidates exist so the suggestion can match wherever the recommended restaurant
-// actually is, instead of always pointing to the same one.
+// Kakao Map place data — same verification standard as mockData.js.
 export const leisureSpots = [
   {
     id: 1,
@@ -70,32 +68,16 @@ export const leisureSpots = [
   },
 ];
 
-// Picks one spot per category, preferring a match on location zone and then the
-// closest walking time to the top-recommended restaurant (so e.g. the PC방 pick
-// follows whichever end of the SHUTTLE_STOP strip the restaurant actually sits on).
-//
-// Exception: for the "1시간 이상 + 6,000원 이하" combo (a quick, budget-friendly
-// meal like 동아분식/밉상짬뽕 followed by killing time before class), always
-// suggest 레벨업 PC specifically rather than the nearest-match PC방.
-export function pickLeisureSpots(answers, topRestaurant) {
-  const categories = ['PC방', '카페', '아이스크림'];
-  const targetZone =
-    answers.location === 'main_gate' ? LOCATION_ZONES.MAIN_GATE : LOCATION_ZONES.SHUTTLE_STOP;
-  const targetWalk = topRestaurant?.walkingTimeMinutes ?? 0;
+// Picks one PC방·카페·아이스크림 per location answer. Each is a fixed pick keyed
+// on location alone: 정문 근처를 골랐으면 레벨업 PC·아스트커피·배스킨라빈스
+// 부산동대승학점, 사하10 탑승장 근처를 골랐으면 티티PC 하단점·카페순덕·배스킨
+// 라빈스 부산하단점.
+const LEISURE_PICKS_BY_LOCATION = {
+  main_gate: ['레벨업 PC', '아스트커피', '배스킨라빈스 부산동대승학점'],
+  shuttle_stop: ['티티PC 하단점', '카페순덕', '배스킨라빈스 부산하단점'],
+};
 
-  return categories.map((category) => {
-    if (category === 'PC방' && answers.time === 'relaxed' && answers.budget === 'budget') {
-      return leisureSpots.find((spot) => spot.name === '레벨업 PC');
-    }
-
-    const candidates = leisureSpots.filter((spot) => spot.category === category);
-    const zoneMatches = candidates.filter((spot) => spot.locationZone === targetZone);
-    const pool = zoneMatches.length > 0 ? zoneMatches : candidates;
-
-    return pool.reduce((closest, spot) =>
-      Math.abs(spot.walkingTimeMinutes - targetWalk) < Math.abs(closest.walkingTimeMinutes - targetWalk)
-        ? spot
-        : closest
-    );
-  });
+export function pickLeisureSpots(answers) {
+  const names = LEISURE_PICKS_BY_LOCATION[answers.location] ?? LEISURE_PICKS_BY_LOCATION.main_gate;
+  return names.map((name) => leisureSpots.find((spot) => spot.name === name));
 }

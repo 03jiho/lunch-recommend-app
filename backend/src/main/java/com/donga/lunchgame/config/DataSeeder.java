@@ -186,11 +186,12 @@ public class DataSeeder implements CommandLineRunner {
                         List.of("빠른 서비스", "가성비", "평지 접근"))
                         .withCreatorPick(null),
 
-                new Restaurant("올바로갈비", "한식 / 돼지갈비", "돼지갈비", "생 100g 3,900원+양념 100g 3,500원+계란공기밥 1,500원 = 8,900원 (실제 방문 후기 주문 사례)", 8900,
+                new Restaurant("올바로갈비", "한식 / 돼지갈비", "돼지갈비", "돼지고기 최소 600g부터 주문 가능 (기본 상차림비 3,000원 별도) — 양념돼지갈비 600g 21,000원 + 상차림비 3,000원 = 24,000원", 24000,
                         20, 1, LocationZone.SHUTTLE_STOP, 10,
-                        "생돼지갈비 / 양념돼지갈비",
+                        "양념돼지갈비 (최소 600g 주문)",
                         "https://map.kakao.com/?q=올바로갈비 부산 사하구 낙동대로519번길 25",
-                        List.of("특별한 한 끼", "평지 접근")),
+                        List.of("특별한 한 끼", "평지 접근"))
+                        .withCreatorPick(null),
 
                 new Restaurant("짬뽕관 부산하단점", "중식 / 짬뽕", "짬뽕", "10,000 ~ 12,000원", 10000,
                         12, 1, LocationZone.SHUTTLE_STOP, 6,

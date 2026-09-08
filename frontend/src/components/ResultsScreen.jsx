@@ -64,7 +64,7 @@ export default function ResultsScreen({ answers, onRestart }) {
             </h3>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
-            {pickLeisureSpots(answers, results[0]).map((spot) => (
+            {pickLeisureSpots(answers).map((spot) => (
               <a
                 key={spot.id}
                 href={spot.mapUrl}
