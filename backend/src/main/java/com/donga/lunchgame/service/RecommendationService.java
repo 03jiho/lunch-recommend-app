@@ -68,6 +68,30 @@ public class RecommendationService {
             }
         }
 
+        // Exception: "15분 초스피드 + 10,000원 이상 + 정문 근처" naturally lands on
+        // 고래섬 (조리 20분, 밥 무한리필 - a sit-down, take-your-time dish) once
+        // 돈카츠/짬뽕 are already taken, since it's the next-best premium dish near
+        // the main gate. But 20분은 "초스피드"와 안 맞으므로, 조리 12분인 온센(텐동)
+        // 으로 대체한다.
+        if ("fast".equals(answers.time()) && "gourmet".equals(answers.budget()) && "main_gate".equals(answers.location())) {
+            int slowIndex = -1;
+            for (int i = 0; i < picks.size(); i++) {
+                if ("고래섬 동아대점".equals(picks.get(i).name())) {
+                    slowIndex = i;
+                    break;
+                }
+            }
+            Restaurant onsen = ordered.stream()
+                    .filter(r -> "온센 부산사하구점".equals(r.getName()))
+                    .findFirst()
+                    .orElse(null);
+            boolean alreadyHasFoodType = onsen != null
+                    && picks.stream().anyMatch(r -> r.foodType().equals(onsen.getFoodType()));
+            if (slowIndex != -1 && onsen != null && !alreadyHasFoodType) {
+                picks.set(slowIndex, RestaurantResponse.from(onsen));
+            }
+        }
+
         return picks;
     }
 
