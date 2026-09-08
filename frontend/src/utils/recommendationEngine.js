@@ -10,6 +10,25 @@ export function getRecommendations(restaurants, answers, topN = 3) {
     }))
     .sort((a, b) => b.score - a.score);
 
+  // The location answer should actually change what shows up. A +3 score bonus alone
+  // isn't enough — a cluster of great time/budget/creator-pick matches on one side of
+  // campus can outscore every restaurant near the other, so the chosen zone never wins
+  // a slot. Put zone matches ahead of everything else; only reach outside the zone to
+  // fill remaining slots if it doesn't have enough distinct dishes.
+  const targetZone =
+    answers.location === 'main_gate'
+      ? LOCATION_ZONES.MAIN_GATE
+      : answers.location === 'shuttle_stop'
+      ? LOCATION_ZONES.SHUTTLE_STOP
+      : null;
+
+  const ordered = targetZone
+    ? [
+        ...scored.filter(({ restaurant }) => restaurant.locationZone === targetZone),
+        ...scored.filter(({ restaurant }) => restaurant.locationZone !== targetZone),
+      ]
+    : scored;
+
   // Avoid showing two restaurants of the same dish (e.g. two 돈카츠 places, or two
   // 짬뽕 places even though their category text differs — "중식 / 짬뽕" vs "일식 /
   // 돈카츠" vs "한식 / 경양식 돈까스" can still be the same food). Once a foodType is
@@ -18,7 +37,7 @@ export function getRecommendations(restaurants, answers, topN = 3) {
   const seenFoodTypes = new Set();
   const picks = [];
 
-  for (const { restaurant } of scored) {
+  for (const { restaurant } of ordered) {
     if (seenFoodTypes.has(restaurant.foodType)) continue;
     seenFoodTypes.add(restaurant.foodType);
     picks.push(restaurant);

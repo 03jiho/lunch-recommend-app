@@ -28,9 +28,28 @@ public class RecommendationService {
     }
 
     public List<RestaurantResponse> recommend(QuizAnswerRequest answers) {
-        List<Restaurant> restaurants = restaurantService.findAllEntities().stream()
+        List<Restaurant> scored = restaurantService.findAllEntities().stream()
                 .sorted(Comparator.comparingInt((Restaurant r) -> score(r, answers)).reversed())
                 .toList();
+
+        // The location answer should actually change what shows up. A +3 score bonus
+        // alone isn't enough - a cluster of great time/budget/creator-pick matches on
+        // one side of campus can outscore every restaurant near the other, so the
+        // chosen zone never wins a slot. Put zone matches ahead of everything else;
+        // only reach outside the zone to fill remaining slots if it doesn't have
+        // enough distinct dishes.
+        String targetZone = "main_gate".equals(answers.location())
+                ? LocationZone.MAIN_GATE
+                : "shuttle_stop".equals(answers.location()) ? LocationZone.SHUTTLE_STOP : null;
+
+        List<Restaurant> ordered;
+        if (targetZone != null) {
+            ordered = new ArrayList<>();
+            scored.stream().filter(r -> targetZone.equals(r.getLocationZone())).forEach(ordered::add);
+            scored.stream().filter(r -> !targetZone.equals(r.getLocationZone())).forEach(ordered::add);
+        } else {
+            ordered = scored;
+        }
 
         // Avoid showing two restaurants of the same dish (e.g. two 돈카츠 places, or
         // two 짬뽕 places even though their category text differs). Once a foodType
@@ -39,7 +58,7 @@ public class RecommendationService {
         Set<String> seenFoodTypes = new HashSet<>();
         List<RestaurantResponse> picks = new ArrayList<>();
 
-        for (Restaurant restaurant : restaurants) {
+        for (Restaurant restaurant : ordered) {
             if (!seenFoodTypes.add(restaurant.getFoodType())) {
                 continue;
             }
