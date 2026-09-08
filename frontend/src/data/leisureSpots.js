@@ -50,6 +50,24 @@ export const leisureSpots = [
     description: '정문 바로 앞, 도보 2분',
     mapUrl: 'https://map.kakao.com/?q=배스킨라빈스 부산동대승학점 부산 사하구 낙동대로550번길 1',
   },
+  {
+    id: 6,
+    name: '카페순덕',
+    category: '카페',
+    locationZone: LOCATION_ZONES.SHUTTLE_STOP,
+    walkingTimeMinutes: 12,
+    description: '동아대 인근 정원 감성 카페, 도보 12분',
+    mapUrl: 'https://map.kakao.com/?q=카페순덕 부산 사하구 낙동남로1423번길 70-1',
+  },
+  {
+    id: 7,
+    name: '배스킨라빈스 부산하단점',
+    category: '아이스크림',
+    locationZone: LOCATION_ZONES.SHUTTLE_STOP,
+    walkingTimeMinutes: 14,
+    description: '하단역 2번 출구 앞, 도보 3분',
+    mapUrl: 'https://map.kakao.com/?q=배스킨라빈스 부산하단점 부산 사하구 낙동남로 1388',
+  },
 ];
 
 // Picks one spot per category, preferring a match on location zone and then the

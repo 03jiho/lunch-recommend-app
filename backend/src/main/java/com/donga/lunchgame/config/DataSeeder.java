@@ -122,7 +122,7 @@ public class DataSeeder implements CommandLineRunner {
                         25, 1, LocationZone.SHUTTLE_STOP, 13,
                         "1kg 스테이크 한상 (3~4인)",
                         "https://map.kakao.com/?q=서가앤쿡 부산하단점 부산 사하구 낙동대로 491",
-                        List.of("특별한 한 끼", "단체모임 추천")),
+                        List.of("특별한 한 끼", "단체모임 추천", "평지 접근")),
 
                 new Restaurant("화반 하단점", "한식 / 비빔밥·두루치기", "비빔밥", "9,900 ~ 11,900원", 9900,
                         15, 1, LocationZone.MAIN_GATE, 2,
@@ -166,7 +166,7 @@ public class DataSeeder implements CommandLineRunner {
                         "https://map.kakao.com/?q=써브웨이 부산동아대점 부산 사하구 낙동대로 542",
                         List.of("빠른 서비스", "평지 접근")),
 
-                new Restaurant("온센 부산사하구점", "일식 / 텐동·튀김덮밥", "텐동", "온센텐동 9,500원 (매장 메뉴판 확인)", 9500,
+                new Restaurant("온센 부산사하구점", "일식 / 텐동·튀김덮밥", "텐동", "온센텐동 9,900원 (매장 메뉴판 확인)", 9900,
                         12, 1, LocationZone.MAIN_GATE, 4,
                         "온센텐동",
                         "https://map.kakao.com/?q=온센 부산사하구점 부산 사하구 낙동대로516번길 43",
@@ -196,32 +196,32 @@ public class DataSeeder implements CommandLineRunner {
                         12, 1, LocationZone.SHUTTLE_STOP, 6,
                         "짬뽕 (200도 고온 불맛)",
                         "https://map.kakao.com/?q=짬뽕관 부산하단점 부산 사하구 낙동대로 528",
-                        List.of("가성비"))
+                        List.of("가성비", "평지 접근"))
                         .withCreatorPick("홀에서 먹으면 밥·청포도에이드 무한리필"),
 
                 new Restaurant("홍주방 하단본점", "중식 / 마라탕·마라샹궈", "마라탕", "마라탕 100g 1,800원, 1인당 약 15,000원 (실제 방문 후기 기준)", 15000,
                         15, 1, LocationZone.SHUTTLE_STOP, 5,
                         "마라탕 / 꿔바로우",
                         "https://map.kakao.com/?q=홍주방 하단본점 부산 사하구 낙동대로 532",
-                        List.of("특별한 한 끼")),
+                        List.of("특별한 한 끼", "평지 접근")),
 
                 new Restaurant("제일돌곱창", "한식 / 양곱창·돌곱창전골", "곱창전골", "돌곱창전골(소) 29,000원", 29000,
                         25, 1, LocationZone.SHUTTLE_STOP, 7,
                         "돌곱창전골",
                         "https://map.kakao.com/?q=제일돌곱창 부산 사하구 낙동대로535번길 4",
-                        List.of("특별한 한 끼", "단체모임 추천")),
+                        List.of("특별한 한 끼", "단체모임 추천", "평지 접근")),
 
                 new Restaurant("핏제리아곳간", "양식 / 화덕피자·파스타", "피자", "알리오올리오 11,900원 / 트러플크림뇨끼 15,500원 (매장 메뉴판 확인)", 11900,
                         15, 1, LocationZone.SHUTTLE_STOP, 4,
                         "마르게리따 피자",
                         "https://map.kakao.com/?q=핏제리아곳간 부산 사하구 낙동대로 543",
-                        List.of("가성비")),
+                        List.of("가성비", "평지 접근")),
 
                 new Restaurant("명륜진사갈비 부산하단점", "한식 / 돼지갈비 무한리필", "돼지갈비", "1인 13,500원 (무한리필 정상가)", 13500,
                         20, 1, LocationZone.SHUTTLE_STOP, 5,
                         "무한리필 돼지갈비",
                         "https://map.kakao.com/?q=명륜진사갈비 부산하단점 부산 사하구 낙동대로 533",
-                        List.of("특별한 한 끼", "단체모임 추천")),
+                        List.of("특별한 한 끼", "단체모임 추천", "평지 접근")),
 
                 new Restaurant("신전떡볶이 동아대점", "분식 / 떡볶이", "떡볶이", "오리지널 떡볶이 4,500원 (1인 세트 9,500원)", 4500,
                         8, 1, LocationZone.MAIN_GATE, 6,
@@ -253,11 +253,11 @@ public class DataSeeder implements CommandLineRunner {
                         15, 1, LocationZone.MAIN_GATE, 6,
                         "크림뽕",
                         "https://map.kakao.com/?q=하이뽕 동아대점 부산 사하구 낙동대로516번길 16",
-                        List.of("특별한 한 끼")),
+                        List.of("특별한 한 끼", "평지 접근")),
 
-                new Restaurant("삼국지짬뽕천하", "중식 / 짬뽕·탕수육", "짬뽕", "산동탕수육(미니) 13,000원 / 탕수육 세트 19,500 ~ 21,500원", 13000,
+                new Restaurant("삼국지짬뽕천하", "중식 / 짬뽕·탕수육", "짬뽕", "짬뽕 8,000원 / 차돌박이짬뽕 10,000원 (배달 메뉴 기준)", 10000,
                         15, 1, LocationZone.MAIN_GATE, 2,
-                        "차돌짬뽕 + 탕수육 세트",
+                        "차돌박이짬뽕",
                         "https://map.kakao.com/?q=삼국지짬뽕천하 부산 사하구 낙동대로550번길 1",
                         List.of("특별한 한 끼", "평지 접근")),
 
@@ -268,7 +268,7 @@ public class DataSeeder implements CommandLineRunner {
                         List.of("빠른 서비스", "가성비", "평지 접근"))
                         .withCreatorPick(null),
 
-                new Restaurant("키타이", "일식 / 돈카츠", "돈카츠", "키타이카츠 10,000원 / 안심카츠 11,500원 (매장 메뉴판 확인)", 10000,
+                new Restaurant("키타이", "일식 / 돈카츠", "돈카츠", "키타이카츠 10,000원 / 안심카츠 11,500원 (매장 메뉴판 확인)", 11500,
                         15, 1, LocationZone.MAIN_GATE, 4,
                         "안심카츠 (336시간 숙성)",
                         "https://map.kakao.com/?q=키타이 부산 사하구 낙동대로 552",
