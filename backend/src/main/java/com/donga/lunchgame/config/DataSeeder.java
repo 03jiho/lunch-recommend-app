@@ -86,9 +86,9 @@ public class DataSeeder implements CommandLineRunner {
                         "https://map.kakao.com/?q=청계옥 하단 부산 사하구 낙동대로549번길 29",
                         List.of("특별한 한 끼", "평지 접근")),
 
-                new Restaurant("리코리코 동아대점", "멕시칸 / 부리또", "부리또", "5,000 ~ 8,000원 (세트 기준)", 6000,
+                new Restaurant("리코리코 동아대점", "멕시칸 / 부리또", "부리또", "부리또단품(미니) 6,000원 / 부리또단품 6,500원 / 음료 세트 7,500~8,000원 / 감자튀김 세트 10,500원 (매장 주문 화면 기준)", 6000,
                         8, 1, LocationZone.MAIN_GATE, 5,
-                        "부리또 세트 (맵기·토핑 커스터마이즈 가능)",
+                        "부리또단품(미니) (고기·매운맛 선택 가능)",
                         "https://map.kakao.com/?q=리코리코 동아대점 부산 사하구 낙동대로516번길 33",
                         List.of("빠른 서비스", "가성비", "평지 접근"))
                         .withCreatorPick(null),
