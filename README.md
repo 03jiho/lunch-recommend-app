@@ -1,7 +1,6 @@
 # 점심 뭐먹지? — 동아대학교 승학캠퍼스 점심 밸런스 게임
 
-- Vercel: https://donga-lunch.vercel.app
-- GitHub Pages: https://03jiho.github.io/lunch-recommend-app/
+**[바로가기](https://donga-lunch.vercel.app)**
 
 동아대학교 승학캠퍼스(하단) 주변에서 시간·예산·위치 조건에 맞춰 점심 맛집 Top 3를 추천해주는 밸런스 게임 스타일의 웹 앱입니다.
 
@@ -24,7 +23,7 @@
 |---|---|
 | Frontend | React 19, Vite, Tailwind CSS v4, lucide-react |
 | Backend | Spring Boot 3.3 (Java 17), Spring Data JPA, H2 (embedded) |
-| 배포 | GitHub Pages (프론트엔드, GitHub Actions로 자동 배포) |
+| 배포 | Vercel (프론트엔드, GitHub 연동으로 자동 배포) |
 
 ## 프로젝트 구조
 
